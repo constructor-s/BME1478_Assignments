@@ -12,16 +12,17 @@ do
 	fi
 
 	# Check any file that has basename info.csv
-	if ls "$line""/info.csv" 1> /dev/null 2>&1; then
-		# echo "$line""/info.csv" "exists"
+	if ls "$line"/*.csv 1> /dev/null 2>&1; then
+		# echo "$line"/*.csv "exists"
 		:
 	else
-		echo "$line" "is missing a demographic spreadsheet (info.csv)"
+		echo "$line" "is missing a demographic spreadsheet (*.csv)"
 	fi
 done
 
 # Example output:
-# ./20180220-01 is missing a demographic spreadsheet (info.csv)
-# ./20180310-02 is missing a demographic spreadsheet (info.csv)
+# $ ./2.sh
+# ./20180220-01 is missing a demographic spreadsheet (*.csv)
+# ./20180310-02 is missing a demographic spreadsheet (*.csv)
 # ./20180405-01 is missing a note file
-# ./20180511-01 is missing a demographic spreadsheet (info.csv)
+# ./20180511-01 is missing a demographic spreadsheet (*.csv)
