@@ -1,13 +1,30 @@
+r"""
+BME1478 Fall 2020 Assignment 5
+
+Usage:
+python model_growth.py csv_file fit_range_start fit_range_end fit_range_interval
+
+Examples:
+>python model_growth.py bacteria.csv 0.1 1 0.1
+We predict the rate of growth of this bacterial population to be 0.30000000000000004
+
+>python model_growth.py bacteria.csv 0 2 0.1
+We predict the rate of growth of this bacterial population to be 0.30000000000000004
+"""
+
 # import libraries used in this script
-**(a, 1 mark)  ....**
+# **(a, 1 mark)  ....**
+import sys
+import numpy as np
+
 
 def main():
     # read in the data from the .csv passed to our script
-    filename = **(b, 0.5 marks)...**
-    experiment_data = **(c, 0.5 marks)...**
+    filename = sys.argv[1] # **(b, 0.5 marks)...**
+    experiment_data = np.loadtxt(filename, delimiter=",") # **(c, 0.5 marks)...**
 
     # store the command-line arguments that represent the start, stop, and step size in the variable rate_params
-    rate_params = **(d, 0.5 marks)....**
+    rate_params = sys.argv[2:5] # **(d, 0.5 marks)....**
     # note: since the parameters that are read by sys.argv are strings, we have to convert them to floats using float(a_string)
     range_rate = np.arange(float(rate_params[0]), float(rate_params[1]), float(rate_params[2]))
 
@@ -31,4 +48,27 @@ def main():
     
     
 # write the code necessary to make sure the main() function is called when we run the script from command line
-**(e, 1 mark)...**
+# **(e, 1 mark)...**
+if __name__ == '__main__':
+    main()
+
+
+## Part 2
+#
+# do the steps necessary to track your change (i.e. add the changed file to the staging area, and commit with an explanatory commit message). List the two commands you needed to run:
+#
+# (a, 0.5 marks)
+# git add Assignment/dummy_story.txt
+#
+# (b, 0.5 marks)
+# git commit -m "Add line to story"
+#
+# push your updated local repo to the remote named “origin” (which is the nickname for your fork). Write the command you needed to run:
+#
+# (c, 1 mark)
+# git push origin master
+#
+# go to your fork on GitHub, confirm that your repo is now ahead of the class repo (something like the figure below), and open a pull request.
+#
+# (d, 1 mark)
+# Please see: https://github.com/BME1478H/Fall2020class/pull/350
